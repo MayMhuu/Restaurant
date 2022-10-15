@@ -1,17 +1,20 @@
 import { useState } from "react";
-import header from "../../pages/view/json/header.json";
+import Image from "../Image";
+import { useRouter } from "next/router";
 
-export default function HeaderMenu() {
+export default function HeaderMenu({ menus }) {
   const [navbar, setNavbar] = useState(false);
+  const router = useRouter();
 
+  console.log(router.pathname);
   return (
     <>
       <nav className="w-full ">
-        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 mt-10">
+        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 ">
           <div>
             <div className="flex items-center justify-between py-3 md:py-1 md:block">
-              <a href="https://www.todayonline.com/" className="text-red-700 text-lg font-bold">
-                today
+              <a href="#">
+                <Image src="logo.jpg" width={70} height={70} />
               </a>
               <div className="md:hidden">
                 <button
@@ -59,10 +62,20 @@ export default function HeaderMenu() {
               }`}
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                {header &&
-                  header.map((nav, i) => (
-                    <li className="text-darkBrown" key={i} >
-                      <a href={nav.absolute_url} target={nav.options.attributes.target}>{nav.title}</a>
+                {menus &&
+                  menus.map((nav, i) => (
+                    <li className="text-darkBrown" key={i}>
+                      <a
+                        href={nav.slug}
+                        target="_self"
+                        className={`mr-4 my-auto hover:text-yellow-600 font-normal font-serif text-xl ${
+                          router.pathname.includes(nav.slug)
+                            ? "text-indigo-600"
+                            : "text-brand-darkblue"
+                        }`}
+                      >
+                        {nav.title}
+                      </a>
                     </li>
                   ))}
               </ul>

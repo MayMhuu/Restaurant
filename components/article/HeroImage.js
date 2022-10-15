@@ -12,7 +12,7 @@ export default function HeroImage({ image, caption }) {
         className="w-9/12 h-10/12 "
       />
 
-      <div className="pt-3" dangerouslySetInnerHTML={{ __html: caption }}></div>
+      <div className="pt-3" dangerouslySetInnerHTML={{ __html: caption.html }}></div>
     </div>
   );
 }

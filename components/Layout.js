@@ -1,37 +1,17 @@
 import HeaderMenu from "../components/article/HeaderMenu";
 import Head from "next/head";
 
-export default function Layout({ children }) {
+export default function Layout({ menus,children }) {
   return (
     <div>
       <Head>
-        <title>Today News</title>
+        <title>Restaurant</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="w-ful ">
-        <HeaderMenu />
+      <div className="w-full bg-yellowBrown ">
+        <HeaderMenu menus={menus} />
         <main className="flex-1">{children}</main>
       </div>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query {
-        menus {
-          name
-        }
-      }
-    `,
-  });
-
-  const { menus } = data;
-  console.log("data_xxx", data);
-  return {
-    props: {
-      menus,
-    },
-  };
 }

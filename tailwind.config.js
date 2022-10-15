@@ -48,7 +48,8 @@ module.exports = {
       babyBrown:'#d77555',
       brown:'#db9984',
       telegram:'#0088cc',
-      facebook:'#4267B2'
+      facebook:'#4267B2',
+      yellowBrown:'#e9d3b5',
     }),
     columns: {
       auto: 'auto',
