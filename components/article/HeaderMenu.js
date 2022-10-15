@@ -70,7 +70,7 @@ export default function HeaderMenu({ menus }) {
                         target="_self"
                         className={`mr-4 my-auto hover:text-yellow-600 font-normal font-serif text-xl ${
                           router.pathname.includes(nav.slug)
-                            ? "text-indigo-600"
+                            ? "text-yellow-600"
                             : "text-brand-darkblue"
                         }`}
                       >

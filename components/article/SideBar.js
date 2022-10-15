@@ -7,7 +7,7 @@ export default function SideBar({ data }) {
       {data.map((item, index) => {
         return (
           <div key={index}>
-            <p className="text-black font-bold text-m"> {item.name}</p>
+            <p className=" font-bold text-m"> {item.name}</p>
             <div className="flex pb-4">
               <div className="w-1/5 h-1/2">
                 <Image

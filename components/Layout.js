@@ -5,7 +5,7 @@ export default function Layout({ menus,children }) {
   return (
     <div>
       <Head>
-        <title>Restaurant</title>
+        <title>Coffee House</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="w-full bg-yellowBrown ">
