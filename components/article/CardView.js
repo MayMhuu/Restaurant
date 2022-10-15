@@ -2,11 +2,11 @@ export default function CardView({ data, index }) {
   return (
     <div
       className=" w-64 h-64 rounded shadow-lg  p-3 m-3 "
-      key={index}
+      key={key}
     >
       <div className="w-full h-40 bg-slate-400">
         <img
-          class="w-full h-full bg-black rounded"
+          className="w-full h-full bg-black rounded"
           src={data.image.url}
           alt="product Image"
         ></img>

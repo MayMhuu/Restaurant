@@ -11,7 +11,7 @@ export default function Menu({ products }) {
             {products &&
               products.length > 0 &&
               products.map((data, index) => {
-                return <CardView data={data} index={index} />;
+                return <CardView data={data} key={index} />;
               })}
           </div>
         </div>

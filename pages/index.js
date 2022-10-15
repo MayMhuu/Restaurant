@@ -1,19 +1,5 @@
-import HeadLine from "../components/article/HeadLine";
-import ByLine from "../components/article/ByLine";
-import DateLine from "../components/article/DateLine";
-import HeroImage from "../components/article/HeroImage";
-import Connect from "../components/article/Connect";
-import ArticleBody from "../components/article/ArticleBody";
-import SideBar from "../components/article/SideBar";
-import articelJson from "./view/json/article-316751.json";
-import sideBarJson from "./view/json/sideBar.json";
-import FollowPage from "../components/article/FollowPage";
-import TaggedTopic from "../components/article/TaggedTopics";
-import Subscribe from "../components/article/Subscribe";
-import ReadAlso from "../components/article/ReadAlso";
 import client from "../apolloClient";
 import { gql } from "@apollo/client";
-import Layout from "../components/layout";
 import Image from "next/image";
 
 export default function Home() {
@@ -33,7 +19,7 @@ export default function Home() {
         <div className="w-10/12 pt-8 pb-9 justify-items-center text-center">
           <h3 className="text-babyBrown font-medium">About Us</h3>
           <p className="text-brown font-normal">
-            Western brunch classics with Japanese flair. We're located in the
+            Western brunch classics with Japanese flair. We&apos;re located in the
             heart of Joo Chiat, the home to cafe culture. Serving contemporary
             dishes using the freshest Japanese ingredients, dining at Café Natsu
             is a luxurious yet comforting affair. ‍

@@ -48,7 +48,7 @@ export default function Contact({ contact }) {
                   component="textarea"
                   className="mb-3 h-20 rounded-sm focus:outline-none focus:shadow-outline"
                 />
-                <div class="mt-8 bg-amber-800 text-center h-10 rounded-sm ">
+                <div className="mt-8 bg-amber-800 text-center h-10 rounded-sm ">
                   <button type="submit" className=" pt-2 text-white font-black">
                     Confirmation
                   </button>

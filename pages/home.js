@@ -22,10 +22,10 @@ export default function Home() {
           </h3>
           <p className="text-brown font-normal">
             The Coffee House Complete Guide to Coffee We believe that coffee is
-            more than just a drink: It’s a culture, an economy, an art, a
-            science — and a passion. Whether you're new to the brew or an
+            more than just a drink: It&apos;s a culture, an economy, an art, a
+            science — and a passion. Whether you&apos;re new to the brew or an
             espresso expert, whether you prefer it with or without caffeine,
-            there's always more to learn about America's favorite beverage.‍
+            there&apos;s always more to learn about America&apos;s favorite beverage.&apos;
           </p>
         </div>
       </div>
