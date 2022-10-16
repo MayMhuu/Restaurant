@@ -15,6 +15,7 @@ export default function SideBar({ data }) {
                   src={item.image.url}
                   width="100%"
                   height="100%"
+                  className="rounded"
                 />
               </div>
               <div className="w-4/5 h-1/3 pl-3">
