@@ -2,8 +2,12 @@
 
 ## Running Locally
 
-git clone https://github.com/MayMhuu/Restaurant.git
+git clone
+
+https://github.com/MayMhuu/Restaurant.git
+
 cd production
+
 yarn dev
 
 ## Built Using
