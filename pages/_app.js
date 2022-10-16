@@ -5,7 +5,7 @@ config.autoAddCss = false;
 import { ApolloProvider } from "@apollo/client";
 import client from "../apolloClient";
 import { gql } from "@apollo/client";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
 function App({ Component, pageProps, menus }) {
   return (
