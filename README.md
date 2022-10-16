@@ -33,5 +33,10 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-Web site link
-Using React js,Next js,GraphQL, ApolloClient
+## Development Information
+
+- React js,Next js,GraphQL, ApolloClient, Tailwind
+
+## Project Url
+
+-https://coffee-house-loznvjn9o-maymhuu.vercel.app

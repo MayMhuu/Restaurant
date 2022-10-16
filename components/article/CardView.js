@@ -1,4 +1,4 @@
-export default function CardView({ data, index }) {
+export default function CardView({ data, key }) {
   return (
     <div
       className=" w-64 h-64 rounded shadow-lg  p-3 m-3 "
