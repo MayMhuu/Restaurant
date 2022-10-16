@@ -21,7 +21,7 @@ export default function Home() {
             The Coffee House Complete Guide to Coffee
           </h3>
           <p className="text-brown font-normal">
-            The Coffee House Complete Guide to Coffee We believe that coffee is
+            The Coffee House Complete Guide to Coffee We believe that coffee isdrfte
             more than just a drink: It&apos;s a culture, an economy, an art, a
             science — and a passion. Whether you&apos;re new to the brew or an
             espresso expert, whether you prefer it with or without caffeine,
