@@ -4,7 +4,7 @@ export default function HeroImage({ image, caption }) {
   return (
     <div>
       <Image
-        alt="Mountains"
+        alt="Hero"
         src={image && image}
         layout="responsive"
         width="100%"

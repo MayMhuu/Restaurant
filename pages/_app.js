@@ -2,7 +2,6 @@ import "../styles/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
-import { ApolloProvider } from "@apollo/client";
 import client from "../apolloClient";
 import { gql } from "@apollo/client";
 import Layout from "../components/Layout";
@@ -44,7 +43,6 @@ App.getInitialProps = async ({ Component, ctx }) => {
   });
 
   const { menus } = data;
-  console.log("menus_xx",menus)
   return { props, menus };
 };
 export default App;
