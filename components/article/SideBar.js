@@ -3,7 +3,6 @@ import Image from "next/image";
 export default function SideBar({ data }) {
   return (
     <>
-      {/* <p className="text-black font-bold text-m"> {data.name}</p> */}
       {data.map((item, index) => {
         return (
           <div key={index}>

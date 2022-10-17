@@ -13,12 +13,9 @@ export default function CardView({ data, key }) {
       </div>
 
       <div className="px-6 py-4">
-        <div className="font-bold text-lg mb-2 text-amber-800">
+        <div className="font-bold text-md mb-2 text-amber-800">
           {data.name} {data.price}
         </div>
-        {/* <div className=" text-sm mb-2">
-          {data.description}
-        </div> */}
       </div>
     </div>
   );
