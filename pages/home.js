@@ -2,74 +2,71 @@ import client from "../apolloClient";
 import { gql } from "@apollo/client";
 import Image from "next/image";
 
-export default function Home() {
+export default function Home({ menus, products }) {
+  const { jsonField, content, image } = menus[0];
+
+  const findData = (key) => {
+    let data = jsonField.find((x) => x.key === key);
+    if (data)
+      return (
+        <>
+          <h3 className=" pb-2 font-bold">{data.header}</h3>
+          <p>{data.body}</p>
+        </>
+      );
+
+    return null;
+  };
+
   return (
-    <div className="grid justify-items-center ">
-      <div className="w-10/12 h-10/12 mt-3 mb-5 items-center">
-        <Image
-          alt="Mountains"
-          src="https://media.graphassets.com/BB4YtSNmQsKpkGeEXSnM"
-          layout="responsive"
-          width="100%"
-          height="40px"
-          className="w-10/12 h-10/12  rounded "
-        />
+    <div className="container mx-auto sm:px-0 overflow-hidden relative w-4/5 text-amber-800">
+      <Image
+        alt="main"
+        src={image[0].url}
+        layout="responsive"
+        width="100%"
+        height="40px"
+        className="w-10/12 h-10/12 rounded "
+      />
+      <div className=" w-full h-full flex-col text-center ">
+        <div
+          className=" pt-8 pb-9 "
+          dangerouslySetInnerHTML={{ __html: content.html }}
+        ></div>
+
+        <h2 className=" font-extrabold pb-7">Our Core Values</h2>
       </div>
-      <div className="grid w-full h-full bg-babyYellow justify-items-center text-center ">
-        <div className="w-10/12 pt-8 pb-9 justify-items-center ">
-          <h3 className="text-babyBrown font-medium">
-            The Coffee House Complete Guide to Coffee
-          </h3>
-          <p className="text-brown font-normal">
-            The Coffee House Complete Guide to Coffee We believe that coffee isdrfte
-            more than just a drink: It&apos;s a culture, an economy, an art, a
-            science — and a passion. Whether you&apos;re new to the brew or an
-            espresso expert, whether you prefer it with or without caffeine,
-            there&apos;s always more to learn about America&apos;s favorite beverage.&apos;
-          </p>
-        </div>
+
+      <div className=" w-full h-full flex flex-row bg-slate-400 justify-center text-center">
+        <div className="w-1/3 p-12 bg-yellow-50">{findData("first")}</div>
+        <div className="w-1/3 p-12 bg-stone-200">{findData("second")}</div>
+        <div className="w-1/3 p-12 bg-orange-50">{findData("third")}</div>
       </div>
-      <div className="grid grid-cols-4 w-full h-full bg-yellowBrown">
-        <div className="w-full h-10/12">
-          <Image
-            alt="img1"
-            src="https://media.graphassets.com/vdw9AC8SYGqLxU0bGivT"
-            layout="responsive"
-            width="100%"
-            height="45px"
-            className="w-11/12 h-10/12 "
-          />
-        </div>
-        <div className="w-full h-10/12">
-          <Image
-            alt="img5"
-            src="https://media.graphassets.com/vR5ED4T8RuWwVrCQ1GFr"
-            layout="responsive"
-            width="100%"
-            height="45px"
-            className="w-full h-10/12  "
-          />
-        </div>
-        <div className="w-full h-10/12">
-          <Image
-            alt="img"
-            src="https://media.graphassets.com/KpJ0Gc3RSC8rwA2gBi7p"
-            layout="responsive"
-            width="100%"
-            height="45px"
-            className="w-11/12 h-10/12   "
-          />
-        </div>
-        <div className="w-full h-10/12">
-          <Image
-            alt="img6"
-            src="https://media.graphassets.com/aPHpbT6KRAO1QCsanrv1"
-            layout="responsive"
-            width="100%"
-            height="45px"
-            className="w-11/12 h-10/12   "
-          />
-        </div>
+      <h2 className=" font-extrabold pt-6 text-center">Menus</h2> 
+      <div className="animate-carouselAnim carousel-items flex  items-center justify-center w-fit">
+        {products &&
+          products.length > 0 &&
+          products.map((data, index) => {
+            return (
+              <div
+                key={index}
+                className="h-56 w-64 carousel-focus flex items-center flex-col relative bg-lightBrown mx-5 my-10 px-4 py-3 rounded-lg shadow-lg"
+              >
+                <img
+                  className=" mt-3 h-16 w-16 rounded-full shadow-2xl"
+                  src={data.image.url}
+                  alt="Img"
+                />
+                <p className="mt-3 font-semibold text-amber-800 text-center">{data.name}</p>
+                <div
+                  className="article-style text-left text-amber-800"
+                  dangerouslySetInnerHTML={{
+                    __html: data.productDescription?.html ?? "",
+                  }}
+                ></div>
+              </div>
+            );
+          })}
       </div>
     </div>
   );
@@ -79,19 +76,37 @@ export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
       query {
-        menus {
+        menus(where: { slug: "home" }) {
           name
           slug
           title
+          image {
+            url
+          }
+          jsonField
           content {
             html
           }
+        }
+
+        products {
+          title
+          slug
+          date
+          name
+          productDescription {
+            html
+          }
+          price
+          image {
+            url
+          }
+          type
         }
       }
     `,
   });
 
-  const { menus } = data;
-
-  return { props: { menus } };
+  const { menus, products } = data;
+  return { props: { menus, products } };
 }

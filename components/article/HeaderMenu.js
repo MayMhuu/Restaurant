@@ -6,7 +6,6 @@ export default function HeaderMenu({ menus }) {
   const [navbar, setNavbar] = useState(false);
   const router = useRouter();
 
-  console.log(router.pathname);
   return (
     <>
       <nav className="w-full ">
@@ -61,7 +60,7 @@ export default function HeaderMenu({ menus }) {
                 navbar ? "block" : "hidden"
               }`}
             >
-              <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+              <ul className=" list-none items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                 {menus &&
                   menus.map((nav, i) => (
                     <li className="text-darkBrown" key={i}>

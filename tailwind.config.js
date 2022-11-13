@@ -50,6 +50,7 @@ module.exports = {
       telegram:'#0088cc',
       facebook:'#4267B2',
       yellowBrown:'#e9d3b5',
+      lightBrown:'#f0e0c9'
     }),
     columns: {
       auto: 'auto',
@@ -122,6 +123,7 @@ module.exports = {
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
+      carouselAnim: 'carouselAnim 10s infinite alternate linear'
     },
     aspectRatio: {
       auto: 'auto',
@@ -590,6 +592,14 @@ module.exports = {
           transform: 'none',
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
         },
+      },
+      carouselAnim: {
+        from: {
+          transform: 'translate(0, 0)'
+        },
+        to: {
+          transform: 'translate(calc(-100% + (6*300px)))'
+        }
       },
     },
     letterSpacing: {
