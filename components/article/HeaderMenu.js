@@ -6,7 +6,6 @@ export default function HeaderMenu({ menus }) {
   const [navbar, setNavbar] = useState(false);
   const router = useRouter();
 
-  console.log(router.pathname);
   return (
     <>
       <nav className="w-full ">

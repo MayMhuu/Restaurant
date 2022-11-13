@@ -23,7 +23,7 @@ export default function Menu({ products, breadData }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`
       query {

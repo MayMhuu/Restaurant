@@ -2,14 +2,18 @@ import Image from "next/image";
 import { Formik, Field, Form } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
+import client from "../apolloClient";
+import { gql } from "@apollo/client";
 
-export default function Contact({ contact }) {
+export default function Contact({ menus }) {
+
+  const {image} = menus[0];
   return (
     <div className="container mx-auto sm:px-0 w-4/5">
       <div className="w-full">
         <Image
-          alt="Mountains"
-          src="https://media.graphassets.com/BB4YtSNmQsKpkGeEXSnM"
+          alt="main"
+          src={image[0].url}
           layout="responsive"
           width="100%"
           height="40px"
@@ -27,7 +31,6 @@ export default function Contact({ contact }) {
                 message: "",
               }}
               onSubmit={(values) => {
-              //  alert(JSON.stringify(values, null, 2));
               }}
             >
               <Form className="flex flex-col font-bold text-amber-800">
@@ -71,4 +74,26 @@ export default function Contact({ contact }) {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: gql`
+      query {
+        menus(where: { slug: "contact" }) {
+          name
+          slug
+          title
+          image {
+            url
+          }
+         
+        }
+      }
+    `,
+  });
+
+  const { menus } = data;
+
+  return { props: { menus } };
 }
